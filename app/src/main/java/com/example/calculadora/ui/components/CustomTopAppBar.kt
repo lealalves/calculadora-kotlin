@@ -17,7 +17,7 @@ fun CustomTopAppBar() {
             titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
         ),
         title = {
-            Text("Calculadora calculítica")
+            Text("Calculadora calculítica", style = MaterialTheme.typography.titleLarge)
         }
     )
 }

@@ -21,16 +21,24 @@ import com.example.calculadora.ui.theme.CalculadoraTheme
 fun CustomButton(
     onClick: () -> Unit,
     buttonText: String,
+    calcButton: Boolean = false
 ) {
     ElevatedButton(
         onClick = onClick, modifier = Modifier,
         shape = RoundedCornerShape(15.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            contentColor = MaterialTheme.colorScheme.onPrimaryContainer
-        )
+        colors = if (calcButton) {
+            ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                contentColor = MaterialTheme.colorScheme.onSecondaryContainer
+            )
+        } else {
+            ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                contentColor = MaterialTheme.colorScheme.onTertiaryContainer
+            )
+        }
     ) {
-        Text(text = buttonText, fontSize = 10.sp)
+        Text(text = buttonText, style = MaterialTheme.typography.labelLarge)
     }
 }
 
@@ -39,6 +47,6 @@ fun CustomButton(
 fun CustomButtonPreview() {
     CustomButton(
         onClick = {},
-        buttonText = "TEXTO"
+        buttonText = "TEXTO",
     )
 }
